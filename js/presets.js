@@ -14,13 +14,13 @@ var presets = [
 	{
 		name: "Default preset",
 		dark: false,
-		clbl: false,
+		clbl: true,
 		hmin: 0,
 		hmax: 360,
-		cmin: 30,
-		cmax: 80,
-		lmin: 35,
-		lmax: 80
+		cmin: 0,
+		cmax: 100,
+		lmin: 65,
+		lmax: 82
 	},
 	{
 		name: "Colorblind friendly",

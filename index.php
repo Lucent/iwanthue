@@ -110,8 +110,8 @@
                             </div>
                             <div class="span2">
                                 <select id="algo" class="span2">
-                                    <option value="kmeans" selected=true>soft (k-Means)</option>
-                                    <option value="forcevector" >hard (Force vector)</option>
+                                    <option value="kmeans">soft (k-Means)</option>
+                                    <option value="forcevector" selected=true>hard (Force vector)</option>
                                 </select>
                             </div>
                         </div>
@@ -292,7 +292,7 @@ $(document).ready(function(){
     $('#cmax').val(3);
     $('#lmin').val(0);
     $('#lmax').val(1.5);
-    $('#colorsCount').val(5);
+    $('#colorsCount').val(10);
 
     initSelectors()
     colorpicker.init()

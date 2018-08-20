@@ -1,5 +1,6 @@
 var palette = false,
-	locks = []
+	locks = [],
+	loops = 0;
 
 var initVisualPalette = function(noTransition){
 	var colorCount = parseInt($('#colorsCount').val());
@@ -232,7 +233,7 @@ var drawPalette = function(colors, _matchings){
 		,cmax = $('#cmax').val()
 		,lmin = $('#lmin').val()
 		,lmax = $('#lmax').val()
-		,q = 50	// quality
+		,q = 100	// quality
 		,useFV = ($('#algo').val()=="forcevector")	// Force vector or kMeans
 		,dType = $('#colorblindFriendly').is(':checked') ? ('Compromise') : ('Default')
 		,hcondition
@@ -325,8 +326,24 @@ var reduceToPalette = function(){
 	}
 
 	$("#refine").hide()
-	
-	updateColorSpace( colors, true )
+
+	updateColorSpace( colors, true );
+	loops++;
+	var min = 1000;
+	var normal = [0, 44];
+	var protan = [45, 89];
+	var deutan = [90, 134];
+	var rows = document.getElementById("additionalInfo").getElementsByClassName("row");
+	for (var row = normal[0]; row <= normal[1]; row++) {
+		var val = parseFloat(rows[row].getElementsByClassName("span1")[2].innerHTML);
+		if (!isNaN(val))
+			min = Math.min(min, val);
+	}
+	if (min < 32)
+		reduceToPalette();
+	else
+		alert(loops);
+
 }
 
 var updateAdditionalInfo = function (colors) {

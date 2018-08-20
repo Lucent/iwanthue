@@ -410,7 +410,7 @@
 
 <?php include('includes/codebottom.php'); ?>
 
-        <script src="js/libs/d3.v3.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
 
         <script src="js/background.js"></script>
         <script src="js/colorspace.js"></script>
